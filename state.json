@@ -1,0 +1,55 @@
+{
+    "high_score": 0,
+    "quizzes": [
+        {
+            "question": "파이썬(Python)의 창시자는 누구일까요?",
+            "options": [
+                "Guido van Rossum",
+                "Elon Musk",
+                "Bill Gates",
+                "Mark Zuckerberg"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "리스트 끝에 요소를 추가할 때 사용하는 메서드는?",
+            "options": [
+                "add()",
+                "append()",
+                "push()",
+                "insert_end()"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "파이썬 소스코드 파일의 확장자는?",
+            "options": [
+                ".py",
+                ".python",
+                ".pyt",
+                ".pyc"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "파이썬에서 화면에 문장을 출력할 때 사용하는 함수는?",
+            "options": [
+                "console.log()",
+                "printf()",
+                "print()",
+                "System.out.println()"
+            ],
+            "answer": 3
+        },
+        {
+            "question": "참/거짓을 표현하는 파이썬의 데이터 타입은?",
+            "options": [
+                "String",
+                "Integer",
+                "Boolean",
+                "Float"
+            ],
+            "answer": 3
+        }
+    ]
+}
