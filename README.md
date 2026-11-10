@@ -108,3 +108,15 @@
 - **저장 방식 변경 (JSON ➔ DB)**: QuizGame.load_data(), QuizGame.save_data()
 - **메뉴 항목 추가**: QuizGame.display_menu(), QuizGame.run()
 
+
+
+## 9.4 Screenshot Evidence (스크린샷 증빙)
+
+- **10+ Commits History**
+![Commit Log](./images/commit_log.png)
+
+- **PR & Branch Merge Evidence**
+![PR Merge](./images/pr_merge.png)
+
+- **Clone & Pull Terminal Log**
+![Clone Pull](./images/clone_pull.png)
