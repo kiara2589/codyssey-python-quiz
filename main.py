@@ -1,15 +1,15 @@
-import json
+﻿import json
 import os
 
-class Quiz:
-    """개별 퀴즈를 표현하는 클래스"""
+# Quiz Model Class`nclass Quiz:
+    """媛쒕퀎 ?댁쫰瑜??쒗쁽?섎뒗 ?대옒??""
     def __init__(self, question, options, answer):
         self.question = question
         self.options = options
         self.answer = answer
 
     def to_dict(self):
-        """JSON 저장을 위해 객체를 딕셔너리로 변환"""
+        """JSON ??μ쓣 ?꾪빐 媛앹껜瑜??뺤뀛?덈━濡?蹂??""
         return {
             "question": self.question,
             "options": self.options,
@@ -18,7 +18,7 @@ class Quiz:
 
 
 class QuizGame:
-    """퀴즈 게임 전체를 관리하는 클래스"""
+    """?댁쫰 寃뚯엫 ?꾩껜瑜?愿由ы븯???대옒??""
     def __init__(self):
         self.quizzes = []
         self.high_score = 0
@@ -26,7 +26,7 @@ class QuizGame:
         self.load_data()
 
     def load_data(self):
-        """state.json 파일에서 데이터를 불러오거나 기본 데이터 생성"""
+        """state.json ?뚯씪?먯꽌 ?곗씠?곕? 遺덈윭?ㅺ굅??湲곕낯 ?곗씠???앹꽦"""
         if os.path.exists(self.file_path):
             try:
                 with open(self.file_path, "r", encoding="utf-8") as f:
@@ -37,25 +37,25 @@ class QuizGame:
                         for q in data.get("quizzes", [])
                     ]
             except Exception:
-                print("⚠️ 데이터 파일 손상으로 기본 데이터를 로드합니다.")
+                print("?좑툘 ?곗씠???뚯씪 ?먯긽?쇰줈 湲곕낯 ?곗씠?곕? 濡쒕뱶?⑸땲??")
                 self.set_default_quizzes()
         else:
             self.set_default_quizzes()
 
     def set_default_quizzes(self):
-        """기본 퀴즈 5개 설정"""
+        """湲곕낯 ?댁쫰 5媛??ㅼ젙"""
         default_data = [
-            Quiz("파이썬(Python)의 창시자는 누구일까요?", ["Guido van Rossum", "Elon Musk", "Bill Gates", "Mark Zuckerberg"], 1),
-            Quiz("리스트 끝에 요소를 추가할 때 사용하는 메서드는?", ["add()", "append()", "push()", "insert_end()"], 2),
-            Quiz("파이썬 소스코드 파일의 확장자는?", [".py", ".python", ".pyt", ".pyc"], 1),
-            Quiz("파이썬에서 화면에 문장을 출력할 때 사용하는 함수는?", ["console.log()", "printf()", "print()", "System.out.println()"], 3),
-            Quiz("참/거짓을 표현하는 파이썬의 데이터 타입은?", ["String", "Integer", "Boolean", "Float"], 3)
+            Quiz("?뚯씠??Python)??李쎌떆?먮뒗 ?꾧뎄?쇨퉴??", ["Guido van Rossum", "Elon Musk", "Bill Gates", "Mark Zuckerberg"], 1),
+            Quiz("由ъ뒪???앹뿉 ?붿냼瑜?異붽??????ъ슜?섎뒗 硫붿꽌?쒕뒗?", ["add()", "append()", "push()", "insert_end()"], 2),
+            Quiz("?뚯씠???뚯뒪肄붾뱶 ?뚯씪???뺤옣?먮뒗?", [".py", ".python", ".pyt", ".pyc"], 1),
+            Quiz("?뚯씠?ъ뿉???붾㈃??臾몄옣??異쒕젰?????ъ슜?섎뒗 ?⑥닔??", ["console.log()", "printf()", "print()", "System.out.println()"], 3),
+            Quiz("李?嫄곗쭞???쒗쁽?섎뒗 ?뚯씠?ъ쓽 ?곗씠????낆??", ["String", "Integer", "Boolean", "Float"], 3)
         ]
         self.quizzes = default_data
         self.save_data()
 
     def save_data(self):
-        """현재 퀴즈 목록과 최고 점수를 state.json에 저장"""
+        """?꾩옱 ?댁쫰 紐⑸줉怨?理쒓퀬 ?먯닔瑜?state.json?????""
         data = {
             "high_score": self.high_score,
             "quizzes": [quiz.to_dict() for quiz in self.quizzes]
@@ -64,33 +64,33 @@ class QuizGame:
             json.dump(data, f, ensure_ascii=False, indent=4)
 
     def display_menu(self):
-        """메인 메뉴 출력"""
-        print("\n===== Python 퀴즈 게임 =====")
-        print("1. 퀴즈 풀기")
-        print("2. 퀴즈 추가")
-        print("3. 퀴즈 목록 보기")
-        print("4. 최고 점수 보기")
-        print("5. 종료")
+        """硫붿씤 硫붾돱 異쒕젰"""
+        print("\n===== Python ?댁쫰 寃뚯엫 =====")
+        print("1. ?댁쫰 ?湲?)
+        print("2. ?댁쫰 異붽?")
+        print("3. ?댁쫰 紐⑸줉 蹂닿린")
+        print("4. 理쒓퀬 ?먯닔 蹂닿린")
+        print("5. 醫낅즺")
 
     def run(self):
-        """프로그램 실행 및 메뉴 처리 루프"""
+        """?꾨줈洹몃옩 ?ㅽ뻾 諛?硫붾돱 泥섎━ 猷⑦봽"""
         while True:
             self.display_menu()
-            choice = input("원하는 메뉴 번호를 입력하세요: ").strip()
+            choice = input("?먰븯??硫붾돱 踰덊샇瑜??낅젰?섏꽭?? ").strip()
 
             if choice == "1":
-                print("\n[퀴즈 풀기] 기능을 준비 중입니다.")
+                print("\n[?댁쫰 ?湲? 湲곕뒫??以鍮?以묒엯?덈떎.")
             elif choice == "2":
-                print("\n[퀴즈 추가] 기능을 준비 중입니다.")
+                print("\n[?댁쫰 異붽?] 湲곕뒫??以鍮?以묒엯?덈떎.")
             elif choice == "3":
-                print("\n[퀴즈 목록 보기] 기능을 준비 중입니다.")
+                print("\n[?댁쫰 紐⑸줉 蹂닿린] 湲곕뒫??以鍮?以묒엯?덈떎.")
             elif choice == "4":
-                print(f"\n현재 최고 점수: {self.high_score}점")
+                print(f"\n?꾩옱 理쒓퀬 ?먯닔: {self.high_score}??)
             elif choice == "5":
-                print("\n퀴즈 게임을 종료합니다. 이용해 주셔서 감사합니다!")
+                print("\n?댁쫰 寃뚯엫??醫낅즺?⑸땲?? ?댁슜??二쇱뀛??媛먯궗?⑸땲??")
                 break
             else:
-                print("\n⚠️ 잘못된 입력입니다. 1부터 5 사이의 숫자를 입력해 주세요.")
+                print("\n?좑툘 ?섎せ???낅젰?낅땲?? 1遺??5 ?ъ씠???レ옄瑜??낅젰??二쇱꽭??")
 
 
 if __name__ == "__main__":
